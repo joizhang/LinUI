@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="linuiApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>首页 - LinUI</title>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/linui.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="bs-example-navbar-collapse-1">
+            <span class="sr-only">toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#/index"><strong> LinUI </strong></a>
+        </div>
+        <!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> 
+          <ul class="nav navbar-nav">
+            <li><a href="#/index" tittle="topic"><i class="icon-home"></i> 首页 </a></li>
+            <li><a href="#/topic" tittle="topic"><i class="icon-thumbs-up"></i> 话题社 </a></li>
+            <li><a href="#/blog" tittle="blog"><i class="icon-bullhorn"></i> 博客园 </a></li>
+            <li class="dropdown">
+              <a href="" class="dropdown-toggle" data-toggle="dropdown" tittle="topic">
+                <i class="icon-cogs"></i> 学海无涯  
+                <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#/topic">话题社</a></li>
+                <li><a href="#/blog">博客园</a></li>
+                <li><a href="wherelike.html">WhereLike</a></li>
+              </ul>
+            </li>
+            <li><a href="#/about" tittle="topic"><i class="icon-coffee"></i> 关于 </a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="signin.html"><i class="icon-signin"></i> 登录 </a></li>            
+            <li><a href="signup.html"><i class="icon-edit"></i> 注册</a></li>
+          </ul>
+        </div>
+        <!-- /.collapse navbar-collapse -->
+      </div>
+      <!-- /.container -->
+    </nav>
+    <!-- nav -->
+
+    <div ng-view></div>
+
+    <footer class="lin-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 footer-below">
+            <ul class="list-inline">
+              <li class="weibo"></li>
+              <li class="qq"></li>
+              <li class="wechat"></li>
+            </ul>
+          </div>
+          <div class="col-lg-12 footer-below">
+            <p>
+              主题及模板来自<a href="http://startbootstrap.com/">Start Bootstrap</a> Written By Joizhang<br>
+              Copyright © LinUI 2015
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- footer -->
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/filters.js"></script>
+    <script src="js/services.js"></script>
+  </body>
+</html>

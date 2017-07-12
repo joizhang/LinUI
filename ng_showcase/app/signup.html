@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>注册</title>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/linui.css" rel="stylesheet">
+  </head>
+  <body class="signin-body" style="background-image: url(images/pattern.png)">    
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="signup-panel panel panel-default">
+            <div class="panel-heading">请注册</div>
+            <div class="panel-body">
+              <form >
+                <fieldset>
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-md-3 text-center control-text">用户名：</div>
+                      <div class="col-md-8">
+                        <input class="form-control" name="user.username" type="text" placeholder="用户名有字母、数字组成，以字母开头"/>
+                      </div>
+                    </div>
+                    <!-- /.row -->                        
+                  </div>
+                  <!-- /.form-group -->
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-md-3 text-center control-text">邮箱：</div>
+                      <div class="col-md-8">
+                        <input class="form-control" name="user.email" type="text" placeholder="输入你的常用邮箱"/>
+                      </div>
+                    </div>
+                    <!-- /.row -->                        
+                  </div>
+                  <!-- /.form-group -->
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-md-3 text-center control-text">密码：</div>
+                      <div class="col-md-8">
+                        <input class="form-control" name="user.password" type="text" placeholder="最少六位"/>
+                      </div>
+                    </div>
+                    <!-- /.row -->
+                  </div>
+                  <!-- /.form-group -->
+                  <div class="form-group">
+                    <div class="row">                      
+                      <div class="col-md-3 col-md-offset-3">
+                        <input type="submit" class="btn btn-danger btn-block" value="注册">
+                      </div>
+                    </div>
+                    <!-- /.row -->                   
+                  </div>
+                  <!-- /.form-group -->
+                  <hr>
+                  <div class="form-group">
+                    <div class="row">                      
+                      <div class="col-md-3 col-md-offset-9">
+                        <a href="signin.html">返回登录</a> 
+                      </div>
+                    </div>
+                    <!-- /.row -->                   
+                  </div>
+                  <!-- /.form-group -->  
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="back">
+        <div class="items">
+          <div class="item item2" style="background-image: url(https://img.alicdn.com/tps/TB1pfG4IFXXXXc6XXXXXXXXXXXX.jpg);"></div>
+          <div class="item item3" style="display: block; background-image: url(https://img.alicdn.com/tps/TB1sXGYIFXXXXc5XpXXXXXXXXXX.jpg);"></div>
+          <div class="item item1" style="display: block; background-image: url(https://img.alicdn.com/tps/TB1h9xxIFXXXXbKXXXXXXXXXXXX.jpg);"></div>
+        </div>
+      </div>
+    </div>
+    <!-- /.container -->
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+    var slideEle = slider($('.items'));
+
+    function slider(elem) {
+        var items = elem.children(),
+                max = items.length - 1,
+                animating = false,
+                currentElem,
+                nextElem,
+                pos = 0;
+
+        sync();
+
+        return {
+            next: function () {
+                move(1);
+            },
+            prev: function () {
+                move(-1);
+            },
+            itemsNum: items && items.length
+        };
+
+        function move(dir) {
+            if (animating) {
+                return;
+            }
+            if (dir > 0 && pos == max || dir < 0 && pos == 0) {
+                if (dir > 0) {
+                    nextElem = elem.children('div').first().remove();
+                    nextElem.hide();
+                    elem.append(nextElem);
+                } else {
+                    nextElem = elem.children('div').last().remove();
+                    nextElem.hide();
+                    elem.prepend(nextElem);
+                }
+                pos -= dir;
+                sync();
+            }
+            animating = true;
+            items = elem.children();
+            currentElem = items[pos + dir];
+            $(currentElem).fadeIn(400, function () {
+                pos += dir;
+                animating = false;
+            });
+        }
+
+        function sync() {
+            items = elem.children();
+            for (var i = 0; i < items.length; ++i) {
+                items[i].style.display = i == pos ? 'block' : '';
+            }
+        }
+
+    }
+
+    if (slideEle.itemsNum && slideEle.itemsNum > 1) {
+        setInterval(function () {
+            slideEle.next();
+        }, 4000)
+    }
+    </script>
+  </body>
+</html>
